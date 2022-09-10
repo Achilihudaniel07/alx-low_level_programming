@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <stdio.h>
 
 
@@ -67,3 +68,6 @@ putchar(n);
 return (0);
 
 }
+=======
+
+>>>>>>> 6f355326dd52a71268efcd399980a4320791f1f6
