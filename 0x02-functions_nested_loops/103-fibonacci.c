@@ -1,29 +1,26 @@
-#include "main.h"
-
-
+#include <stdio.h>
 
 /**
-
- * add - adds two integers
-
- * @a: first integer
-
- * @b: second integer
-
- * Return: sum
-
- *
-
+ * main - main block
+ * Description: Print the sum of even Fibonacci numbers up to a fib value
+ * not exceeding 4,000,000.
+ * Return: 0
  */
 
-int add(int a, int b)
-
+int main(void)
 {
+	int i = 1, j = 2, total = 0;
+	int k;
 
-int sum = a + b;
+	while (j < 4000000)
+	{
+		if (j % 2 == 0)
+			total += j;
 
-
-
-return (sum);
-
+		k = j;
+		j += i;
+		i = k;
+	}
+	printf("%d\n", total);
+	return (0);
 }

@@ -1,29 +1,38 @@
 #include "main.h"
-
-
+#include <stdio.h>
 
 /**
-
- * add - adds two integers
-
- * @a: first integer
-
- * @b: second integer
-
- * Return: sum
-
+ * print_to_98 - prints all the integers between the number given and 98
+ * @n: number to count from
  *
-
+ * Return: void
  */
 
-int add(int a, int b)
-
+void print_to_98(int n)
 {
-
-int sum = a + b;
-
-
-
-return (sum);
-
+	if (n > 98)
+	{
+		while (n >= 98)
+		{
+			printf("%d", n);
+			if (n != 98)
+			{
+				printf(", ");
+			}
+			n--;
+		}
+	}
+	else
+	{
+		while (n <= 98)
+		{
+			printf("%d", n);
+			if (n != 98)
+			{
+				printf(", ");
+			}
+			n++;
+		}
+	}
+	printf("\n");
 }

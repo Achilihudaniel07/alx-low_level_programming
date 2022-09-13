@@ -1,29 +1,35 @@
-#include "main.h"
-
-
+#include <stdio.h>
 
 /**
-
- * add - adds two integers
-
- * @a: first integer
-
- * @b: second integer
-
- * Return: sum
-
- *
-
+ * main - main block
+ * Description: Print the first 50 fibonacci numbers, starting with 1 and 2.
+ * Numbers must be coma and space separated.
+ * Return: 0
  */
 
-int add(int a, int b)
-
+int main(void)
 {
+	int count = 2;
+	long int i = 1, j = 2;
+	long int k;
 
-int sum = a + b;
+	printf("%lu, ", i);
+	while (count <= 50)
+	{
+		if (count == 50)
+		{
+			printf("%lu\n", j);
+		}
+		else
+		{
+			printf("%lu, ", j);
+		}
 
+		k = j;
+		j += i;
+		i = k;
+		count++;
+	}
 
-
-return (sum);
-
+	return (0);
 }
