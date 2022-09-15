@@ -1,29 +1,44 @@
 #include "main.h"
 
-
-
 /**
-
- * _isupper - function that checks for uppercase character.
-
- * @c: int type number
-
- * Return: 1 if c is uppercase, 0 otherwise
-
+ * print_triangle - prints triangle using "#" character of a given size
+ *@size: size of triangle
+ *
+ * Return: void
  */
-
-
-
-int _isupper(int c)
-
+void print_triangle(int size)
 {
+	int i = 1, a = 0;
 
-if (c >= 65 && c <= 91)
-
-return (1);
-
-else
-
-return (0);
-
+	if (size > 0)
+	{
+		if (size == 1)
+		{
+			_putchar(35);
+			_putchar('\n');
+		}
+		else
+		{
+			while (i <= size)
+			{	a = 0;
+				while (a < size - i)
+				{
+					_putchar(' ');
+					a++;
+				}
+				a = 0;
+				while (a < i)
+				{
+					_putchar(35);
+					a++;
+				}
+				_putchar('\n');
+				i++;
+			}
+		}
+	}
+	else
+	{
+		_putchar('\n');
+	}
 }
