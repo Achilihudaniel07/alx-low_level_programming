@@ -1,29 +1,32 @@
 #include "main.h"
 
-
-
 /**
-
- * _isupper - function that checks for uppercase character.
-
- * @c: int type number
-
- * Return: 1 if c is uppercase, 0 otherwise
-
+ * print_diagonal - prints diagonal line using "\" character of n length
+ *@n: length of the line
+ *
+ * Return: void
  */
-
-
-
-int _isupper(int c)
-
+void print_diagonal(int n)
 {
+	int i = 1;
 
-if (c >= 65 && c <= 91)
+	if (n > 0)
+	{
+		_putchar(92);
 
-return (1);
+		while (i < n)
+		{
+			int count = 0;
 
-else
-
-return (0);
-
+			_putchar('\n');
+			while (count < i)
+			{
+				_putchar(' ');
+				count++;
+			}
+			_putchar(92);
+			i++;
+		}
+	}
+	_putchar('\n');
 }
