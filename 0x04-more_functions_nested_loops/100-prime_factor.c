@@ -1,55 +1,32 @@
 #include <stdio.h>
-
-
+#include <math.h>
 
 /**
-
- * main - prints numbers from 1 to 100 followed by a new line and replaces
-
- * Fizz, Buzz or FizzBuzz if the number is a multiple of 3, 5
-
+ * main - prints the largest prime factorial of 612852475143
  *
-
  * Return: 0
-
  */
-
 int main(void)
-
 {
+	long int max = -1, n = 612852475143;
+	int i = 3;
 
-int a = 1, i = 2;
-
-
-
-printf("%d", a);
-
-while (i < 101)
-
-{
-
-if (i % 3 == 0 && i % 5 == 0)
-
-printf(" FizzBuzz");
-
-else if (i % 3 == 0)
-
-printf(" Fizz");
-
-else if (i % 5 == 0)
-
-printf(" Buzz");
-
-else
-
-printf(" %d", i);
-
-i++;
-
-}
-
-printf("\n");
-
-return (0);
-
+	while (n % 2 == 0)
+	{
+		max = 2;
+		n /= 2;
+	}
+	while (i <= sqrt(n))
+	{
+		while (n % i == 0)
+		{
+			max = i;
+			n = n / i;
+		}
+		i += 2;
+	}
+	if (n > 2)
+		max = n;
+	printf("%ld\n", max);
+	return (0);
 }
