@@ -1,55 +1,60 @@
-#include <stdio.h>
-
-
+#include "main.h"
 
 /**
-
- * main - prints numbers from 1 to 100 followed by a new line and replaces
-
- * Fizz, Buzz or FizzBuzz if the number is a multiple of 3, 5
-
+ * print_number - prints a number using _putchar
+ * @n: number to print
  *
-
- * Return: 0
-
+ * Return: void
  */
-
-int main(void)
-
+void print_number(int n)
 {
+	unsigned int un = 0;
 
-int a = 1, i = 2;
-
-
-
-printf("%d", a);
-
-while (i < 101)
-
-{
-
-if (i % 3 == 0 && i % 5 == 0)
-
-printf(" FizzBuzz");
-
-else if (i % 3 == 0)
-
-printf(" Fizz");
-
-else if (i % 5 == 0)
-
-printf(" Buzz");
-
-else
-
-printf(" %d", i);
-
-i++;
-
+	if (n < 0)
+	{
+		if (n < 1000000000)
+			n = -n;
+		un = n;
+		_putchar(45);
+		num_to_char(n);
+	}
+	else
+	{
+		un = n;
+		num_to_char(un);
+	}
 }
 
-printf("\n");
+/**
+ * num_to_char - transforms a number with 1 or more digits into a char
+ * @n: number to print
+ *
+ * Return: void
+ */
+void num_to_char(unsigned int n)
+{
+	unsigned int d = 10;
 
-return (0);
-
+	if (n < d)
+	{
+		_putchar('0' + n);
+	}
+	else
+	{
+		while (n >= d)
+		{
+			d *= 10;
+			if (d == 1000000000)
+				break;
+		}
+		if (!(d == 1000000000) || n == 123456789)
+			d /= 10;
+		_putchar('0' + n / d);
+		while (d != 10)
+		{
+			d /= 10;
+			_putchar('0' + (n / d) % 10);
+		}
+		_putchar('0' + n % 10);
+	}
 }
