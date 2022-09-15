@@ -1,29 +1,31 @@
 #include "main.h"
 
-
-
 /**
-
- * _isupper - function that checks for uppercase character.
-
- * @c: int type number
-
- * Return: 1 if c is uppercase, 0 otherwise
-
+ * print_square - prints square using "#" character of a given size
+ *@size: size of square
+ *
+ * Return: void
  */
-
-
-
-int _isupper(int c)
-
+void print_square(int size)
 {
+	int i = 0, c;
 
-if (c >= 65 && c <= 91)
-
-return (1);
-
-else
-
-return (0);
-
+	if (size > 0)
+	{
+		while (i < size)
+		{
+			c = 0;
+			while (c < size)
+			{
+				_putchar(35);
+				c++;
+			}
+			_putchar('\n');
+			i++;
+		}
+	}
+	else
+	{
+		_putchar('\n');
+	}
 }
