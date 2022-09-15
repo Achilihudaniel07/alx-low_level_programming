@@ -1,29 +1,16 @@
 #include "main.h"
 
-
-
 /**
-
- * _isupper - function that checks for uppercase character.
-
- * @c: int type number
-
- * Return: 1 if c is uppercase, 0 otherwise
-
+ * mul - returns result of multiplication between 2 integers
+ *@a: first multiplier
+ *@b: second multiplier
+ *
+ * Return: multiplication result
  */
-
-
-
-int _isupper(int c)
-
+int mul(int a, int b)
 {
+	int result;
 
-if (c >= 65 && c <= 91)
-
-return (1);
-
-else
-
-return (0);
-
+	result = a * b;
+	return (result);
 }
