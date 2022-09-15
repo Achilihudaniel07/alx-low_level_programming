@@ -1,29 +1,29 @@
 #include "main.h"
 
-
-
 /**
-
- * _isupper - function that checks for uppercase character.
-
- * @c: int type number
-
- * Return: 1 if c is uppercase, 0 otherwise
-
+ * more_numbers - prints numbers from 0 to 14 ten times
+ *
+ *
+ * Return: void
  */
-
-
-
-int _isupper(int c)
-
+void more_numbers(void)
 {
+	int i = 0, a, b;
 
-if (c >= 65 && c <= 91)
-
-return (1);
-
-else
-
-return (0);
-
+	while (i < 10)
+	{
+		a = 0;
+		while (a < 15)
+		{
+			b = a;
+			if (a > 9)
+				b = a / 10;
+			_putchar('0' + b);
+			if (a > 9)
+				_putchar('0' + a % 10);
+			a++;
+		}
+		_putchar('\n');
+		i++;
+	}
 }
