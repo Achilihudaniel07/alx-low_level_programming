@@ -1,29 +1,11 @@
+#include "main.h"
+
+/**
+ * reset_to_98 - changes the value of the variable
+ * that's pointed to by the argument to 98
+ *@n: pointer variable
+ */
+void reset_to_98(int *n)
 {
-
-int len = 0;
-
-
-
-while (*(s + len) != 0)
-
-{
-
-len++;
-
-}
-
-len--;
-
-while (len >= 0)
-
-{
-
-_putchar(*(s + len));
-
-len--;
-
-}
-
-_putchar(n);
-
+	*n = 98;
 }
