@@ -1,17 +1,24 @@
-int _strlen(char *s)
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
+/**
+ * main - generates random passwords for 101-crackme
+ * Return: Always 0
+ */
+int main(void)
 {
+	int sum;
+	char c;
 
-0-reset_to_98.c int len = 0;
+	srand(time(NULL));
+	while (sum <= 2645)
+	{
+		c = rand() % 128;
+		sum += c;
+		putchar(c);
+	}
+	putchar(2772 - sum);
 
-
-
-0-reset_to_98.c while (*(s + len) != 0)
-
-0-reset_to_98.c 0-reset_to_98.c len++;
-
-
-
-0-reset_to_98.c return (len);
-
+	return (0);
 }
