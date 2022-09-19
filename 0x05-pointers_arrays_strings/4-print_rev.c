@@ -1,17 +1,24 @@
-int _strlen(char *s)
+#include "main.h"
 
+/**
+ * print_rev - prints given string in reverse
+ *
+ * @s: passed pointer argument for string
+ * Return: void
+ */
+void print_rev(char *s)
 {
+	int len = 0;
 
-0-reset_to_98.c int len = 0;
-
-
-
-0-reset_to_98.c while (*(s + len) != 0)
-
-0-reset_to_98.c 0-reset_to_98.c len++;
-
-
-
-0-reset_to_98.c return (len);
-
+	while (*(s + len) != '\0')
+	{
+		len++;
+	}
+	len--;
+	while (len >= 0)
+	{
+		_putchar(*(s + len));
+		len--;
+	}
+	_putchar('\n');
 }
