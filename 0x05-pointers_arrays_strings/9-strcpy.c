@@ -1,17 +1,20 @@
-int _strlen(char *s)
-
+/**
+ * *_strcpy - copies string to given memory location
+ * @dest: where the string needs to be copied
+ * @src: where the string is
+ *
+ * Return: char
+ */
+char *_strcpy(char *dest, char *src)
 {
+	int len = 0;
 
-0-reset_to_98.c int len = 0;
+	while (*(src + len) != '\0')
+	{
+		*(dest + len) = *(src + len);
+		len++;
+	}
+	*(dest + len) = *(src + len);
 
-
-
-0-reset_to_98.c while (*(s + len) != 0)
-
-0-reset_to_98.c 0-reset_to_98.c len++;
-
-
-
-0-reset_to_98.c return (len);
-
+	return (dest);
 }
