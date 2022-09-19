@@ -1,17 +1,19 @@
-int _strlen(char *s)
+#include "main.h"
 
+/**
+ * _puts - print a given string to screen
+ *
+ * @str: passed pointer argument for string
+ * Return: void
+ */
+void _puts(char *str)
 {
+	int len = 0;
 
-0-reset_to_98.c int len = 0;
-
-
-
-0-reset_to_98.c while (*(s + len) != 0)
-
-0-reset_to_98.c 0-reset_to_98.c len++;
-
-
-
-0-reset_to_98.c return (len);
-
+	while (*(str + len) != '\0')
+	{
+		_putchar(*(str + len));
+		len++;
+	}
+	_putchar('\n');
 }
