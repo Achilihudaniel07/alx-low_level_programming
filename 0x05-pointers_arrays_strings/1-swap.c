@@ -1,17 +1,15 @@
-int _strlen(char *s)
+#include "main.h"
 
+/**
+ * swap_int - swaps the values pointed to by arguments
+ *
+ *@a: pointer argument 1
+ *@b: pointer argument 2
+ */
+void swap_int(int *a, int *b)
 {
+	int con = *a;
 
-0-reset_to_98.c int len = 0;
-
-
-
-0-reset_to_98.c while (*(s + len) != 0)
-
-0-reset_to_98.c 0-reset_to_98.c len++;
-
-
-
-0-reset_to_98.c return (len);
-
+	*a = *b;
+	*b = con;
 }
