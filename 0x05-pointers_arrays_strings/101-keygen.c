@@ -13,7 +13,7 @@ int main(void)
 	srand(time(NULL);
 	sum = 0;
 	while (sum <= 2645)
-	(
+	{
 		pass =(rand() % 128);
 		sum += pass;
 		printf("%c", pass);
