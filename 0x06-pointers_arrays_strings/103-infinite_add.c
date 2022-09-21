@@ -1,35 +1,47 @@
-#ifndef MAIN_H
+include "main.h"
 
-#define MAIN_H
+/**
+ * infinite_add - adds two numbers
+ * @n1: first number
+ * @n2: second number
+ * @r: buffer for result
+ * @size_r: buffer size
+ *
+ * Return: address of r or 0
+ */
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
+{
+	int i, j, k, l, m, n;
 
-
-
-#include <stdio.h>
-
-
-
-int _putchar(char c);
-
-char *_strcat(char *dest, char *src);
-
-char *_strncat(char *dest, char *src, int n);
-
-char *_strncpy(char *dest, char *src, int n);
-
-int _strcmp(char *s1, char *s2);
-
-void reverse_array(int *a, int n);
-
-char *string_toupper(char *);
-
-char *cap_string(char *);
-
-char *leet(char *);
-
-char *rot13(char *);
-
-void print_number(int n);
-
-
-
-#endif /* MAIN_H */
+	for (i = 0; n1[i]; i++)
+		;
+	for (j = 0; n2[j]; j++)
+		;
+	if (i > size_r || j > size_r)
+		return (0);
+	m = 0;
+	for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
+	{
+		n = m;
+		if (i >= 0)
+			n += n1[i] - '0';
+		if (j >= 0)
+			n += n2[j] - '0';
+		if (i < 0 && j < 0 && n == 0)
+		{
+			break;
+		}
+		m = n / 10;
+		r[k] = n % 10 + '0';
+	}
+	r[k] = '\0';
+	if (i >= 0 || j >= 0 || m)
+		return (0);
+	for (k -= 1, l = 0; l < k; k--, l++)
+	{
+		m = r[k];
+		r[k] = r[l];
+		r[l] = m;
+	}
+	return (r);
+}
