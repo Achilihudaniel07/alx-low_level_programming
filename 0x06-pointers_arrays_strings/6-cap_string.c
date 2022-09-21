@@ -1,35 +1,34 @@
-#ifndef MAIN_H
+#include "main.h"
 
-#define MAIN_H
+/**
+ * cap_string - capitalizes chars in a string following a separator
+ *
+ * @c: character string pointer
+ * Return: char pointer
+ */
+char *cap_string(char *c)
+{
+	int i = 0, j,
+	sep[] = {32, '\t', 11,  '\n', 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
-
-
-#include <stdio.h>
-
-
-
-int _putchar(char c);
-
-char *_strcat(char *dest, char *src);
-
-char *_strncat(char *dest, char *src, int n);
-
-char *_strncpy(char *dest, char *src, int n);
-
-int _strcmp(char *s1, char *s2);
-
-void reverse_array(int *a, int n);
-
-char *string_toupper(char *);
-
-char *cap_string(char *);
-
-char *leet(char *);
-
-char *rot13(char *);
-
-void print_number(int n);
-
-
-
-#endif /* MAIN_H */
+	if (c[0] > 96 && c[0] < 123)
+		c[0] -= 32;
+	while (c[i] != '\0')
+	{
+		if (c[i] > 96 && c[i] < 123)
+		{
+			j = 0;
+			while (j < 14)
+			{
+				if (c[i - 1] == sep[j])
+				{
+					c[i] -= 32;
+					break;
+				}
+				j++;
+			}
+		}
+		i++;
+	}
+	return (c);
+}
