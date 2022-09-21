@@ -1,35 +1,28 @@
-#ifndef MAIN_H
+#include "main.h"
 
-#define MAIN_H
+/**
+ * _strncat - function to concatenate two strings and return a new string
+ * with n elements of the appended string
+ *
+ * @dest: string 1
+ * @src: string 2
+ * @n: number of chars to include from appended string
+ * Return: char pointer
+ */
+char *_strncat(char *dest, char *src, int n)
+{
+	int i = 0, j = 0;
+	char *p;
 
-
-
-#include <stdio.h>
-
-
-
-int _putchar(char c);
-
-char *_strcat(char *dest, char *src);
-
-char *_strncat(char *dest, char *src, int n);
-
-char *_strncpy(char *dest, char *src, int n);
-
-int _strcmp(char *s1, char *s2);
-
-void reverse_array(int *a, int n);
-
-char *string_toupper(char *);
-
-char *cap_string(char *);
-
-char *leet(char *);
-
-char *rot13(char *);
-
-void print_number(int n);
-
-
-
-#endif /* MAIN_H */
+	while (*(dest + i) != '\0')
+		i++;
+	while (!(*(src + j) == '\0' || j == n))
+	{
+		*(dest + i) = *(src + j);
+		i++;
+		j++;
+	}
+	*(dest + i) = '\0';
+	p = dest;
+	return (p);
+}
