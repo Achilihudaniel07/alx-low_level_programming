@@ -1,35 +1,27 @@
-#ifndef MAIN_H
+#include "main.h"
 
-#define MAIN_H
+/**
+ * leet - converts string to leet
+ *
+ * @c: character string pointer
+ * Return: char pointer
+ */
+char *leet(char *c)
+{
+	int i = 0, j;
+	char a[] = {'a', 'e', 'o', 't', 'l'}, b[] = {'A', 'E', 'O', 'T', 'L'},
+	leet[] = {'4', '3', '0', '7', '1'};
 
-
-
-#include <stdio.h>
-
-
-
-int _putchar(char c);
-
-char *_strcat(char *dest, char *src);
-
-char *_strncat(char *dest, char *src, int n);
-
-char *_strncpy(char *dest, char *src, int n);
-
-int _strcmp(char *s1, char *s2);
-
-void reverse_array(int *a, int n);
-
-char *string_toupper(char *);
-
-char *cap_string(char *);
-
-char *leet(char *);
-
-char *rot13(char *);
-
-void print_number(int n);
-
-
-
-#endif /* MAIN_H */
+	while (c[i] != '\0')
+	{
+		j = 0;
+		while (j < 5)
+		{
+			if (c[i] == a[j] || c[i] == b[j])
+				c[i] = leet[j];
+			j++;
+		}
+		i++;
+	}
+	return (c);
+}
