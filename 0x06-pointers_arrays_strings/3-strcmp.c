@@ -1,35 +1,18 @@
-#ifndef MAIN_H
+#include "main.h"
 
-#define MAIN_H
-
-
-
-#include <stdio.h>
-
-
-
-int _putchar(char c);
-
-char *_strcat(char *dest, char *src);
-
-char *_strncat(char *dest, char *src, int n);
-
-char *_strncpy(char *dest, char *src, int n);
-
-int _strcmp(char *s1, char *s2);
-
-void reverse_array(int *a, int n);
-
-char *string_toupper(char *);
-
-char *cap_string(char *);
-
-char *leet(char *);
-
-char *rot13(char *);
-
-void print_number(int n);
-
-
-
-#endif /* MAIN_H */
+/**
+ * _strcmp - function to copy string
+ *
+ * @s1: first string to compare
+ * @s2: second string to compare
+ * Return: int
+ */
+int _strcmp(char *s1, char *s2)
+{
+	while (*s1 && *s1 == *s2)
+	{
+		++s1;
+		++s2;
+	}
+	return ((int)(unsigned char)(*s1) - (int)(unsigned char)(*s2));
+}
