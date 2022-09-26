@@ -1,35 +1,21 @@
 #include "main.h"
 
-
-
 /**
-
- * _memset - fills memory with a constant byte
-
+ * print_chessboard - prints the chessboard
  *
-
- * @s: pointer to string
-
- * @b: constant byte
-
- * @n: first bytes to change
-
- * Return: pointer to modified string
-
+ * @a: 2-dimensional array
+ * Return: void
  */
-
-char *_memset(char *s, char b, unsigned int n)
-
+void print_chessboard(char (*a)[8])
 {
+	int i, j;
 
-unsigned int i;
-
-
-
-for (i = 0; i < n; i++)
-
-s[i] = b;
-
-return (s);
-
+	for (i = 0; i < 8; i++)
+	{
+		for (j = 0; j < 8; j++)
+		{
+			_putchar(a[i][j]);
+		}
+		_putchar('\n');
+	}
 }
