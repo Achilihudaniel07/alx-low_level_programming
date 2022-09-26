@@ -1,35 +1,35 @@
 #include "main.h"
 
-
-
 /**
-
- * _memset - fills memory with a constant byte
-
+ * _strstr - finds the first occurrence of the substring needle
+ *  in the string haystack
  *
-
- * @s: pointer to string
-
- * @b: constant byte
-
- * @n: first bytes to change
-
- * Return: pointer to modified string
-
+ * @haystack: string to work on
+ * @needle: substring to match
+ * Return: pointer to the first match or NULL
  */
-
-char *_memset(char *s, char b, unsigned int n)
-
+char *_strstr(char *haystack, char *needle)
 {
+	int i, j, match;
 
-unsigned int i;
-
-
-
-for (i = 0; i < n; i++)
-
-s[i] = b;
-
-return (s);
-
+	if (*needle == '\0')
+		return (haystack);
+	for (i = 0; haystack[i] != '\0'; i++)
+	{
+		if (haystack[i] == *needle)
+		{
+			for (j = 1; needle[j] != '\0'; j++)
+			{
+				if (needle[j] != haystack[i + j])
+				{
+					match = 0;
+					break;
+				}
+				match = 1;
+			}
+			if (match)
+				return (haystack + i);
+		}
+	}
+	return (NULL);
 }
