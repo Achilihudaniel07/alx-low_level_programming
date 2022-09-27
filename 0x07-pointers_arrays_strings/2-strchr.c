@@ -1,35 +1,19 @@
 #include "main.h"
 
-
-
 /**
-
- * _memset - fills memory with a constant byte
-
+ * _strchr - function that locates a character in a string
  *
-
- * @s: pointer to string
-
- * @b: constant byte
-
- * @n: first bytes to change
-
- * Return: pointer to modified string
-
+ * @s: string to be searched
+ * @c: character to search for
+ * Return: pointer to first occurence of c if it's there or NULL otherwise
  */
-
-char *_memset(char *s, char b, unsigned int n)
-
+char *_strchr(char *s, char c)
 {
-
-unsigned int i;
-
-
-
-for (i = 0; i < n; i++)
-
-s[i] = b;
-
-return (s);
-
+	do {
+		if (*s == c)
+		{
+			return (s);
+		}
+	} while (*s++);
+	return (NULL);
 }
