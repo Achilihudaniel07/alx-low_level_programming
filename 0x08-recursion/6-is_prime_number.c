@@ -1,39 +1,36 @@
-#ifndef MAIN_H
+#include "main.h"
 
-#define MAIN_H
+/**
+ * is_prime_number - returns 1 if the input integer is a prime number,
+ * otherwise returns 0
+ *
+ * @n: number
+ * Return: int
+ */
+int is_prime_number(int n)
+{
+	int i = 2;
 
+	if (n <= 2)
+		return (n == 2 ? 1 : 0);
+	if (n % 2 == 0)
+		return (0);
+	return (is_prime(n, i));
+}
 
-
-#include <stdio.h>
-
-
-
-int _putchar(char c);
-
-void _puts_recursion(char *s);
-
-void _print_rev_recursion(char *s);
-
-int _strlen_recursion(char *s);
-
-int factorial(int n);
-
-int _pow_recursion(int x, int y);
-
-int _sqrt_recursion(int n);
-
-int is_sqrt(int n, int square);
-
-int is_prime_number(int n);
-
-int is_prime(int n, int i);
-
-int is_palindrome(char *s);
-
-int palindrome_check(char *s, int len, int i);
-
-int wildcmp(char *s1, char *s2);
-
-
-
-#endif /* MAIN_H */
+/**
+ * is_prime - returns 1 if the input integer is a prime number,
+ * otherwise returns 0
+ *
+ * @n: number
+ * @i: dividend
+ * Return: int
+ */
+int is_prime(int n, int i)
+{
+	if (n != i && n % i == 0)
+		return (0);
+	else if (n == i)
+		return (1);
+	return (is_prime(n, i + 1));
+}
