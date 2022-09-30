@@ -1,47 +1,17 @@
-#include <stdlib.h>
-
 #include <stdio.h>
 
-
-
 /**
-
  * main - prints all arguments it receives
-
  *
-
  * @argc: argument count
-
  * @argv: argument vector
-
  * Return: int
-
  */
-
 int main(int argc, char *argv[])
-
 {
+	int i;
 
-int m1, m2;
-
-
-
-if (argc != 3)
-
-{
-
-printf("Error\n");
-
-return (1);
-
-}
-
-m1 = atoi(argv[1]);
-
-m2 = atoi(argv[2]);
-
-printf("%d\n", m1 * m2);
-
-return (0);
-
+	for (i = 0; i < argc; i++)
+		printf("%s\n", argv[i]);
+	return (0);
 }
