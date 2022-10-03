@@ -1,29 +1,50 @@
-#ifndef MAIN_H
+#include "main.h"
+#include <stdlib.h>
+/**
+  *argstostr - concatenates all arguments of the program.
+  *@ac: argument count.
+  *@av: pointer to array of size ac.
+  *Return: NULL if ac == 0 or av == null, Pointer to new string.
+  *NULL on fail.
+  */
+char *argstostr(int ac, char **av)
+{
+	int i, j, k, size;
+	char *arg;
 
-#define MAIN_H
-
-
-
-#include <stdio.h>
-
-
-
-int _putchar(char c);
-
-void *malloc(size_t size);
-
-void free(void *ptr);
-
-char *create_array(unsigned int size, char c);
-
-char *_strdup(char *str);
-
-char *str_concat(char *s1, char *s2);
-
-int **alloc_grid(int width, int height);
-
-void free_grid(int **grid, int height);
-
-
-
-#endif /* MAIN_H */
+	size = 0;
+	k = 0;
+	if (ac == 0 || av == NULL)
+		return (NULL);
+	i = 0;
+	while (i < ac)
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			size++;
+			j++;
+		}
+		size++;
+		i++;
+	}
+	arg = malloc((sizeof(char) * size) + 1);
+	if (arg == NULL)
+		return (NULL);
+	i = 0;
+	while (i < ac)
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			arg[k] = av[i][j];
+			j++;
+			k++;
+		}
+		arg[k] = '\n';
+		k++;
+		i++;
+	}
+	arg[k] = '\0';
+	return (arg);
+}
