@@ -1,29 +1,19 @@
-#ifndef MAIN_H
+#include "main.h"
+#include <stdlib.h>
 
-#define MAIN_H
+/**
+ * free_grid - frees a 2 dimensional grid previously created
+ * by alloc_grid function
+ *
+ * @grid: double pointer to 2D array
+ * @height: array height
+ * Return: nothing
+ */
+void free_grid(int **grid, int height)
+{
+	int i;
 
-
-
-#include <stdio.h>
-
-
-
-int _putchar(char c);
-
-void *malloc(size_t size);
-
-void free(void *ptr);
-
-char *create_array(unsigned int size, char c);
-
-char *_strdup(char *str);
-
-char *str_concat(char *s1, char *s2);
-
-int **alloc_grid(int width, int height);
-
-void free_grid(int **grid, int height);
-
-
-
-#endif /* MAIN_H */
+	for (i = 0; i < height; i++)
+		free(grid[i]);
+	free(grid);
+}
