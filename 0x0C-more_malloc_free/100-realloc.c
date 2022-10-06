@@ -1,31 +1,41 @@
-#ifndef MAIN_H
+#include <stdlib.h>
+#include "main.h"
+/**
+  * _realloc - reallocates a memory block using malloc and free.
+  * @ptr: pointer to the memory previously allocated with a
+  * call to ``` malloc : malloc(old_size) ```.
+  * @old_size: size in bytes allocated for ptr.
+  * @new_size: size in bytes of new memory block.
+  *
+  * Return: pointer to new mem block, NULL or ptr.
+  */
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+{
+	char *nptr;
+	unsigned int i;
 
-#define MAIN_H
+	if (new_size == old_size)
+		return (ptr);
+	if ((new_size == 0) && (ptr != NULL))
+	{
+		free(ptr);
+		return (NULL);
+	}
+	if (ptr == NULL)
+	{
+		nptr = malloc(new_size);
+		if (nptr == NULL)
+			return (NULL);
+	}
+	if (new_size > old_size && (ptr != NULL))
+	{
+		nptr = malloc(new_size);
+		if (nptr == NULL)
+			return (nptr);
+		for (i = 0; i < old_size; i++)
+			nptr[i] = *((char *)ptr + 1);
+		free(ptr);
+	}
 
-
-
-#include <stdio.h>
-
-
-
-int _putchar(char c);
-
-void *malloc(size_t size);
-
-void free(void *ptr);
-
-void exit(int status);
-
-void *malloc_checked(unsigned int b);
-
-char *string_nconcat(char *s1, char *s2, unsigned int n);
-
-void *_calloc(unsigned int nmemb, unsigned int size);
-
-int *array_range(int min, int max);
-
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-
-
-
-#endif /* MAIN_H */
+	return (nptr);
+}
