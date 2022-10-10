@@ -1,60 +1,83 @@
-#include "dog.h"
 #include <stdlib.h>
+#include "dog.h"
 
 /**
- * new_dog - new element of type struct dog
- *
- * @name: name of new dog
- * @age: age of new dog
- * @owner: owner of new dog
- * Return: new struct dog
+ * _copy  -   Make a copy of passed in argument
+ * @src:      Data to make copy of
+ * Return:    Pointer
  */
-dog_t *new_dog(char *name, float age, char *owner)
-{
-	dog_t *new_dog;
-	char *dog_name, *dog_owner;
 
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
-		return (new_dog);
-	dog_name = malloc(sizeof(name));
-		if (dog_name == NULL)
-		{
-			free(new_dog);
-			return (NULL);
-		}
-	dog_owner = malloc(sizeof(owner));
-	if (dog_owner == NULL)
+char *_copy(char *src)
+{
+	char *ptr;
+	int i, len;
+
+	if (src == NULL)
 	{
-		free(dog_name);
-		free(new_dog);
 		return (NULL);
 	}
-	_strcpy(dog_name, name);
-	_strcpy(dog_owner, owner);
-	new_dog->name = dog_name;
-	new_dog->owner = dog_owner;
-	new_dog->age = age;
-	return (new_dog);
+
+	for (len = 0; src[len] != '\0'; len++)
+		;
+
+	ptr = malloc(sizeof(char) * (len + 1));
+
+	if (ptr == NULL)
+	{
+		return (NULL);
+	}
+
+	for (i = 0; src[i] != '\0'; i++)
+	{
+		ptr[i] = src[i];
+	}
+
+	ptr[i] = '\0';
+	return (ptr);
 }
 
 /**
- * *_strcpy - copies string to given memory location
- * @dest: where the string needs to be copied
- * @src: where the string is
- *
- * Return: char
+ * new_dog     - Create a new dog variable
+ * @name:        Name of the dog
+ * @age:         Age of the dog
+ * @owner:       Owner of the dog
+ * Return:       Pointer to new dog variable
  */
-char *_strcpy(char *dest, char *src)
+
+dog_t *new_dog(char *name, float age, char *owner)
 {
-	int len = 0;
+	dog_t *snoopie;
+	char *new_name, *new_owner;
 
-	while (*(src + len) != '\0')
+	if (name == NULL || owner == NULL)
 	{
-		*(dest + len) = *(src + len);
-		len++;
+		return (NULL);
 	}
-	*(dest + len) = *(src + len);
 
-	return (dest);
+	snoopie = malloc(sizeof(dog_t));
+	if (snoopie == NULL)
+	{
+		return (NULL);
+	}
+
+	new_name = _copy(name);
+	if (new_name == NULL)
+	{
+		free(snoopie);
+		return (NULL);
+	}
+	(*snoopie).name = new_name;
+
+	(*snoopie).age = age;
+
+	new_owner = _copy(owner);
+	if (new_owner == NULL)
+	{
+		free((*snoopie).name);
+		free(snoopie);
+		return (NULL);
+	}
+	(*snoopie).owner = new_owner;
+
+	return (snoopie);
 }
