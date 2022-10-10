@@ -1,5 +1,4 @@
-#ifndef SIZE
-
-#define SIZE 1024
-
+#ifndef add
+#define add
+#define SUM(x, y) ((x) + (y))
 #endif
