@@ -1,35 +1,17 @@
 #include "dog.h"
-
-#include <stdlib.h>
-
-
+#include <stdio.h>
 
 /**
-
- * free_dog - frees memory held by passed struct
-
+ * print_dog - prints a struct dog
  *
-
- * @d: struct to free
-
- * Return: nothing
-
+ * @d: struct variable
  */
-
-void free_dog(dog_t *d)
-
+void print_dog(struct dog *d)
 {
-
-if (d != NULL)
-
-{
-
-free(d->name);
-
-free(d->owner);
-
-free(d);
-
-}
-
+	if (d != 0)
+	{
+		printf("Name: %s\n", d->name != NULL ? d->name : "(nil)");
+		printf("Age: %f\n", d->age);
+		printf("Owner: %s\n", d->owner != NULL ? d->owner : "(nil)");
+	}
 }
