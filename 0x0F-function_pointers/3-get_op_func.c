@@ -1,27 +1,33 @@
-#include <stdlib.h>
-
-#include "function_pointers.h"
-
-
+#include "3-calc.h"
 
 /**
-
- * print_name - prints a name
-
- * @name: name to print
-
- * @f: pointer to the printing function
-
+ * get_op_func - function pointer that selects the correct function to perform
+ * the operation asked by the user
+ * @s: the operator given by the user
+ *
+ * Return: pointer to the function that corresponds to the
+ * operator given as a parameter
  */
-
-void print_name(char *name, void (*f)(char *))
-
+int (*get_op_func(char *s))(int, int)
 {
+	op_t ops[] = {
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
+		{NULL, NULL}
+	};
+	int i;
 
-if (!name || !f)
+	i = 0;
 
-return;
+	while (ops[i].op)
+	{
+		if (strcmp(ops[i].op, s) == 0)
+			return (ops[i].f);
+		i++;
+	}
 
-f(name);
-
+	return (NULL);
 }
