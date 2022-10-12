@@ -1,27 +1,27 @@
+#ifndef CALC_H
+#define CALC_H
+
+#include <stdio.h>
 #include <stdlib.h>
-
-#include "function_pointers.h"
-
-
+#include <string.h>
 
 /**
-
- * print_name - prints a name
-
- * @name: name to print
-
- * @f: pointer to the printing function
-
+ * struct op - Struct op
+ *
+ * @op: The operator
+ * @f: The function associated
  */
-
-void print_name(char *name, void (*f)(char *))
-
+typedef struct op
 {
+	char *op;
+	int (*f)(int a, int b);
+} op_t;
 
-if (!name || !f)
+int op_add(int a, int b);
+int op_sub(int a, int b);
+int op_mul(int a, int b);
+int op_div(int a, int b);
+int op_mod(int a, int b);
+int (*get_op_func(char *s))(int, int);
 
-return;
-
-f(name);
-
-}
+#endif
