@@ -1,37 +1,19 @@
 #include "lists.h"
 
 /**
-
- * list_len - returns then number of elements in a list.
-
- * @h: singly linked list.
-
- * Return: number of elements in the list.
-
+ * free_list - frees a list
+ * @head: head of the linked list.
+ * Return: no return.
  */
 
-
-
-size_t list_len(const list_t *h)
-
+void free_list(list_t *head)
 {
+	list_t *current;
 
-size_t nelem;
-
-
-
-nelem = 0;
-
-while (h != NULL)
-
-{
-
-h = h->next;
-
-nelem++;
-
-}
-
-return (nelem);
-
+	while ((current = head) != NULL)
+	{
+		head = head->next;
+		free(current->str);
+		free(current);
+	}
 }
