@@ -1,37 +1,12 @@
-#include "lists.h"
+#include <stdio.h>
 
 /**
-
- * list_len - returns then number of elements in a list.
-
- * @h: singly linked list.
-
- * Return: number of elements in the list.
-
+ * bmain - function executed before main
+ * Return: no return.
  */
 
-
-
-size_t list_len(const list_t *h)
-
+void __attribute__ ((constructor)) bmain()
 {
-
-size_t nelem;
-
-
-
-nelem = 0;
-
-while (h != NULL)
-
-{
-
-h = h->next;
-
-nelem++;
-
-}
-
-return (nelem);
-
+	printf("You're beat! and yet, you must allow");
+	printf(",\nI bore my house upon my back!\n");
 }
