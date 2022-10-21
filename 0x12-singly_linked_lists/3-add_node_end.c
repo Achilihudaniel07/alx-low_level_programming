@@ -1,37 +1,48 @@
 #include "lists.h"
 
 /**
-
- * list_len - returns then number of elements in a list.
-
- * @h: singly linked list.
-
- * Return: number of elements in the list.
-
+ * add_node_end - adds a new node at the end
+ * of a list_t list.
+ * @head: head of the linked list.
+ * @str: string to store in the list.
+ * Return: address of the head.
  */
 
-
-
-size_t list_len(const list_t *h)
-
+list_t *add_node_end(list_t **head, const char *str)
 {
+	list_t *new, *temp;
+	size_t nchar;
 
-size_t nelem;
+	new = malloc(sizeof(list_t));
+	if (new == NULL)
+		return (NULL);
 
+	new->str = strdup(str);
 
+	for (nchar = 0; str[nchar]; nchar++)
+		;
 
-nelem = 0;
+	new->len = nchar;
+	new->next = NULL;
+	temp = *head;
 
-while (h != NULL)
+	if (temp == NULL)
+	{
+		*head = new;
+	}
+	else
+	{
+		while (temp->next != NULL)
+			temp = temp->next;
+		temp->next = new;
+	}
 
-{
-
-h = h->next;
-
-nelem++;
-
+	return (*head);
 }
-
-return (nelem);
-
-}
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
