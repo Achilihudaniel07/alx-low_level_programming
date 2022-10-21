@@ -39,10 +39,3 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	return (*head);
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
