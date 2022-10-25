@@ -1,39 +1,42 @@
 #include "lists.h"
 
-
-
 /**
-
- * print_listint - prints all the elements of a list.
-
- * @h: head of a list.
-
+ * find_listint_loop - finds the loop in a linked list.
+ * @head: head of a list.
  *
-
- * Return: numbers of nodes.
-
+ * Return: the address of the node where the loop starts.
  */
-
-size_t print_listint(const listint_t *h)
-
+listint_t *find_listint_loop(listint_t *head)
 {
+	listint_t *p2;
+	listint_t *prev;
 
-size_t nnodes = 0;
+	p2 = head;
+	prev = head;
+	while (head && p2 && p2->next)
+	{
+		head = head->next;
+		p2 = p2->next->next;
 
+		if (head == p2)
+		{
+			head = prev;
+			prev =  p2;
+			while (1)
+			{
+				p2 = prev;
+				while (p2->next != head && p2->next != prev)
+				{
+					p2 = p2->next;
+				}
+				if (p2->next == head)
+					break;
 
+				head = head->next;
+			}
+			return (p2->next);
+		}
+	}
 
-while (h != NULL)
-
-{
-
-printf("%d\n", h->n);
-
-h = h->next;
-
-nnodes++;
-
-}
-
-return (nnodes);
-
+	return (NULL);
 }
