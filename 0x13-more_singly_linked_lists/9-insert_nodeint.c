@@ -1,39 +1,22 @@
 #include "lists.h"
 
-
-
 /**
-
- * print_listint - prints all the elements of a list.
-
- * @h: head of a list.
-
+ * sum_listint - returns the sum of all the data (n) of
+ * a linked list.
+ * @head: head of a list.
  *
-
- * Return: numbers of nodes.
-
+ * Return: sum of all the data (n).
  */
-
-size_t print_listint(const listint_t *h)
-
+int sum_listint(listint_t *head)
 {
+	int sum;
 
-size_t nnodes = 0;
+	sum = 0;
+	while (head != NULL)
+	{
+		sum += head->n;
+		head = head->next;
+	}
 
-
-
-while (h != NULL)
-
-{
-
-printf("%d\n", h->n);
-
-h = h->next;
-
-nnodes++;
-
-}
-
-return (nnodes);
-
+	return (sum);
 }
