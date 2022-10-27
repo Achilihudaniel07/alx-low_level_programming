@@ -1,53 +1,22 @@
 #include "main.h"
 
-
-
 /**
-
- * get_bit - returns the value of a bit at a given
-
- * index.
-
- * @n: unsigned long int input.
-
- * @index: index of the bit.
-
+ * flip_bits - returns the number of bits you would
+ * need to flip to get from one number to another
+ * @n: number one.
+ * @m: number two.
  *
-
- * Return: value of the bit.
-
+ * Return: number of bits.
  */
-
-int get_bit(unsigned long int n, unsigned int index)
-
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
+	unsigned int nbits;
 
-0-binary_to_uint.c unsigned int i;
+	for (nbits = 0; n || m; n >>= 1, m >>= 1)
+	{
+		if ((n & 1) != (m & 1))
+			nbits++;
+	}
 
-
-
-0-binary_to_uint.c if (n == 0 && index < 64)
-
-0-binary_to_uint.c 0-binary_to_uint.c return (0);
-
-
-
-0-binary_to_uint.c for (i = 0; i <= 63; n >>= 1, i++)
-
-0-binary_to_uint.c {
-
-0-binary_to_uint.c 0-binary_to_uint.c if (index == i)
-
-0-binary_to_uint.c 0-binary_to_uint.c {
-
-0-binary_to_uint.c 0-binary_to_uint.c 0-binary_to_uint.c return (n & 1);
-
-0-binary_to_uint.c 0-binary_to_uint.c }
-
-0-binary_to_uint.c }
-
-
-
-0-binary_to_uint.c return (-1);
-
+	return (nbits);
 }
