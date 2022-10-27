@@ -1,53 +1,17 @@
 #include "main.h"
 
-
-
 /**
-
- * get_bit - returns the value of a bit at a given
-
- * index.
-
- * @n: unsigned long int input.
-
- * @index: index of the bit.
-
+ * get_endianness - checks the endianness
  *
-
- * Return: value of the bit.
-
+ * Return: 0 if big endian, 1 if little endian
  */
-
-int get_bit(unsigned long int n, unsigned int index)
-
+int get_endianness(void)
 {
+	unsigned int x;
+	char *c;
 
-0-binary_to_uint.c unsigned int i;
+	x = 1;
+	c = (char *) &x;
 
-
-
-0-binary_to_uint.c if (n == 0 && index < 64)
-
-0-binary_to_uint.c 0-binary_to_uint.c return (0);
-
-
-
-0-binary_to_uint.c for (i = 0; i <= 63; n >>= 1, i++)
-
-0-binary_to_uint.c {
-
-0-binary_to_uint.c 0-binary_to_uint.c if (index == i)
-
-0-binary_to_uint.c 0-binary_to_uint.c {
-
-0-binary_to_uint.c 0-binary_to_uint.c 0-binary_to_uint.c return (n & 1);
-
-0-binary_to_uint.c 0-binary_to_uint.c }
-
-0-binary_to_uint.c }
-
-
-
-0-binary_to_uint.c return (-1);
-
+	return ((int)*c);
 }
