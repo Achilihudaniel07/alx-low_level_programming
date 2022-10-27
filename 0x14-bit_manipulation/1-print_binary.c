@@ -1,53 +1,22 @@
 #include "main.h"
 
-
-
 /**
-
- * get_bit - returns the value of a bit at a given
-
- * index.
-
- * @n: unsigned long int input.
-
- * @index: index of the bit.
-
+ * print_binary - prints the binary representation
+ * of a number.
+ * @n: unsigned long int.
  *
-
- * Return: value of the bit.
-
+ * Return: no return.
  */
-
-int get_bit(unsigned long int n, unsigned int index)
-
+void print_binary(unsigned long int n)
 {
-
-0-binary_to_uint.c unsigned int i;
-
-
-
-0-binary_to_uint.c if (n == 0 && index < 64)
-
-0-binary_to_uint.c 0-binary_to_uint.c return (0);
-
-
-
-0-binary_to_uint.c for (i = 0; i <= 63; n >>= 1, i++)
-
-0-binary_to_uint.c {
-
-0-binary_to_uint.c 0-binary_to_uint.c if (index == i)
-
-0-binary_to_uint.c 0-binary_to_uint.c {
-
-0-binary_to_uint.c 0-binary_to_uint.c 0-binary_to_uint.c return (n & 1);
-
-0-binary_to_uint.c 0-binary_to_uint.c }
-
-0-binary_to_uint.c }
-
-
-
-0-binary_to_uint.c return (-1);
-
+	if (n >> 0)
+	{
+		if (n >> 1)
+			print_binary(n >> 1);
+		_putchar((n & 1) + '0');
+	}
+	else
+	{
+		_putchar('0');
+	}
 }
