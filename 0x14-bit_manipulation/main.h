@@ -1,53 +1,13 @@
-#include "main.h"
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
+unsigned int binary_to_uint(const char *b);
+void print_binary(unsigned long int n);
+int _putchar(char c);
+int get_bit(unsigned long int n, unsigned int index);
+int set_bit(unsigned long int *n, unsigned int index);
+int clear_bit(unsigned long int *n, unsigned int index);
+unsigned int flip_bits(unsigned long int n, unsigned long int m);
+int get_endianness(void);
 
-
-/**
-
- * get_bit - returns the value of a bit at a given
-
- * index.
-
- * @n: unsigned long int input.
-
- * @index: index of the bit.
-
- *
-
- * Return: value of the bit.
-
- */
-
-int get_bit(unsigned long int n, unsigned int index)
-
-{
-
-0-binary_to_uint.c unsigned int i;
-
-
-
-0-binary_to_uint.c if (n == 0 && index < 64)
-
-0-binary_to_uint.c 0-binary_to_uint.c return (0);
-
-
-
-0-binary_to_uint.c for (i = 0; i <= 63; n >>= 1, i++)
-
-0-binary_to_uint.c {
-
-0-binary_to_uint.c 0-binary_to_uint.c if (index == i)
-
-0-binary_to_uint.c 0-binary_to_uint.c {
-
-0-binary_to_uint.c 0-binary_to_uint.c 0-binary_to_uint.c return (n & 1);
-
-0-binary_to_uint.c 0-binary_to_uint.c }
-
-0-binary_to_uint.c }
-
-
-
-0-binary_to_uint.c return (-1);
-
-}
+#endif
