@@ -1,53 +1,22 @@
 #include "main.h"
 
-
-
 /**
-
- * get_bit - returns the value of a bit at a given
-
- * index.
-
- * @n: unsigned long int input.
-
+ * set_bit - sets the value of a bit to 1.
+ * at a given index.
+ * @n: pointer of an unsigned long int.
  * @index: index of the bit.
-
  *
-
- * Return: value of the bit.
-
+ * Return: 1 if it worked, -1 if it didn't.
  */
-
-int get_bit(unsigned long int n, unsigned int index)
-
+int set_bit(unsigned long int *n, unsigned int index)
 {
+	unsigned int m;
 
-0-binary_to_uint.c unsigned int i;
+	if (index > 63)
+		return (-1);
 
+	m = 1 << index;
+	*n = (*n | m);
 
-
-0-binary_to_uint.c if (n == 0 && index < 64)
-
-0-binary_to_uint.c 0-binary_to_uint.c return (0);
-
-
-
-0-binary_to_uint.c for (i = 0; i <= 63; n >>= 1, i++)
-
-0-binary_to_uint.c {
-
-0-binary_to_uint.c 0-binary_to_uint.c if (index == i)
-
-0-binary_to_uint.c 0-binary_to_uint.c {
-
-0-binary_to_uint.c 0-binary_to_uint.c 0-binary_to_uint.c return (n & 1);
-
-0-binary_to_uint.c 0-binary_to_uint.c }
-
-0-binary_to_uint.c }
-
-
-
-0-binary_to_uint.c return (-1);
-
+	return (1);
 }
