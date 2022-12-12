@@ -1,27 +1,15 @@
 #include "main.h"
-
 /**
-
-*_isupper - function that verifies if a  character is uppercase or not
-
-*@c: tested character
-
-*Return: returns 1 if it is uppercase , 0 if not
-
-*/
-
-
-
-int _isupper(int c)
-
+ *_strlen - returns the length of a string
+ * @s: string
+ *Return: returns lenght;
+ */
+int _strlen(char *s)
 {
+int count, inc;
+inc = 0;
+for (count = 0; s[count] != '\0'; count++)
+inc++;
 
-if ((c >= A) && (c <= Z))
-
-return (1);
-
-
-
-return (0);
-
+return (inc);
 }
