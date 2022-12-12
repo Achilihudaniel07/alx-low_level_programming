@@ -1,27 +1,20 @@
 #include "main.h"
-
 /**
-
-*_isupper - function that verifies if a  character is uppercase or not
-
-*@c: tested character
-
-*Return: returns 1 if it is uppercase , 0 if not
-
+*_memset - The _memset() function fills
+* the first n bytes of the memory area
+* pointed to by s with the constant byte b
+*@s:target
+*@b: constant byte
+*@n:number of byte
+*Return: returns new value of target
 */
 
-
-
-int _isupper(int c)
-
+char *_memset(char *s, char b, unsigned int n)
 {
-
-if ((c >= A) && (c <= Z))
-
-return (1);
-
-
-
-return (0);
-
+	while (n)
+	{
+		s[n - 1] = b;
+		n--;
+	}
+	return (s);
 }
