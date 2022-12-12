@@ -1,27 +1,18 @@
 #include "main.h"
-
 /**
-
-*_isupper - function that verifies if a  character is uppercase or not
-
-*@c: tested character
-
-*Return: returns 1 if it is uppercase , 0 if not
-
+* _strcpy - Copy paste string
+*@dest: destination
+*@src: source
+*Return: dest
 */
-
-
-
-int _isupper(int c)
-
+char *_strcpy(char *dest, char *src)
 {
-
-if ((c >= A) && (c <= Z))
-
-return (1);
-
-
-
-return (0);
-
+int inc = 0;
+while (*(src + inc) != '\0')
+{
+*(dest + inc) = *(src + inc);
+inc++;
+}
+*(dest + inc) = '\0';
+return (dest);
 }
