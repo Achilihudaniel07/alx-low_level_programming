@@ -1,27 +1,24 @@
 #include "main.h"
 
 /**
+ *_strcat - concatenates  the string pointed to by @src to
+ * the end of the string pointed to by @dest
+ *@dest: String that will be appended
+ *@src: String to be concatenated upon
+ *
+ * Return: returns poiner to @dest
+ */
 
-*_isupper - function that verifies if a  character is uppercase or not
-
-*@c: tested character
-
-*Return: returns 1 if it is uppercase , 0 if not
-
-*/
-
-
-
-int _isupper(int c)
-
+char *_strcat(char *dest, char *src)
 {
 
-if ((c >= A) && (c <= Z))
+	int index = 0, dest_len = 0;
 
-return (1);
+	while (dest[index++])
+		dest_len++;
 
+	for (index = 0; src[index]; index++)
+		dest[dest_len++] = src[index];
 
-
-return (0);
-
+	return (dest);
 }
