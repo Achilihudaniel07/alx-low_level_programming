@@ -1,27 +1,29 @@
 #include "main.h"
-
 /**
-
-*_isupper - function that verifies if a  character is uppercase or not
-
-*@c: tested character
-
-*Return: returns 1 if it is uppercase , 0 if not
-
+*_strpbrk - The _strpbrk() function locates the first
+* occurrence in the string s of any of the bytes in
+*the string accept
+*
+*@s: string where search is made
+*@accept: string where searched bytes are located
+*
+*Return:Returns a pointer to the byte in s that matches
+* one of the bytes in accept, or NULL if no such byte is found
 */
 
-
-
-int _isupper(int c)
-
+char *_strpbrk(char *s, char *accept)
 {
+	int i;
 
-if ((c >= A) && (c <= Z))
+	while (*s)
+	{
+		for (i = 0; accept[i]; i++)
+		{
+			if (accept[i] == *s)
+				return (s);
+		}
+		s++;
+	}
 
-return (1);
-
-
-
-return (0);
-
+	return ('\0');
 }
