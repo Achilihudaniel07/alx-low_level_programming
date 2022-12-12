@@ -1,27 +1,31 @@
 #include "main.h"
-
 /**
-
-*_isupper - function that verifies if a  character is uppercase or not
-
-*@c: tested character
-
-*Return: returns 1 if it is uppercase , 0 if not
-
+*_strspn - search the number of bytes in the initial
+* segment of s which consist only of bytes from accept
+*@s:segment targeted
+*@accept:reference bytes container
+*
+*Return:returns the number of bytes in the initial
+* segment of s which consist only of bytes from accept
 */
-
-
-
-int _isupper(int c)
-
+unsigned int _strspn(char *s, char *accept)
 {
+	unsigned int bytes = 0;
+	int i;
 
-if ((c >= A) && (c <= Z))
-
-return (1);
-
-
-
-return (0);
-
+	while (*s)
+	{
+		for (i = 0; accept[i]; i++)
+		{
+			if (accept[i] == *s)
+			{
+				bytes++;
+				break;
+			}
+			else if ((accept[i + 1]) == '\0')
+				return (bytes);
+		}
+		s++;
+	}
+	return (bytes);
 }
