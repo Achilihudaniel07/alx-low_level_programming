@@ -1,27 +1,15 @@
 #include "main.h"
-
 /**
-
-*_isupper - function that verifies if a  character is uppercase or not
-
-*@c: tested character
-
-*Return: returns 1 if it is uppercase , 0 if not
-
+* _abs - prints the absolute value of a number
+*@i: number targeted
+*Return: returns 0
 */
-
-
-
-int _isupper(int c)
-
+int _abs(int i)
 {
-
-if ((c >= A) && (c <= Z))
-
-return (1);
-
-
-
+if (i > 0)
+return (i);
+else if (i < 0)
+return (-i);
+else
 return (0);
-
 }
