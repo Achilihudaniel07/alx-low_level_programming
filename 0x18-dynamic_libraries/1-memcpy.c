@@ -1,27 +1,18 @@
 #include "main.h"
-
 /**
-
-*_isupper - function that verifies if a  character is uppercase or not
-
-*@c: tested character
-
-*Return: returns 1 if it is uppercase , 0 if not
-
+*_memcpy - The _memcpy() function copies n bytes
+* from memory area src to memory area dest
+*@dest:area where bytes are copied to
+*@src:area where bytes are copied from
+*@n:number of bytes to copy
+*Return: returns a pointer to n
 */
-
-
-
-int _isupper(int c)
-
+char *_memcpy(char *dest, char *src, unsigned int n)
 {
+	unsigned int i = 0;
 
-if ((c >= A) && (c <= Z))
+	for (; i < n; i++)
+		dest[i] = src[i];
 
-return (1);
-
-
-
-return (0);
-
+	return (dest);
 }
